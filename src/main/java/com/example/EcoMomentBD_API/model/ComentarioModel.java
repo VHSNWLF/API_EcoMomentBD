@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table (name = "prototipo_Comentarios_EcoMoment")
-public class ComentariosModel {
+public class ComentarioModel {
 
     @Id
     private int idComentario;

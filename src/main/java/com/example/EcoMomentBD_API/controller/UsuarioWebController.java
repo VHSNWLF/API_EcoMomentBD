@@ -1,7 +1,7 @@
 package com.example.EcoMomentBD_API.controller;
 
-import com.example.EcoMomentBD_API.model.usuarioWeb;
-import com.example.EcoMomentBD_API.repository.uWebRepository;
+import com.example.EcoMomentBD_API.model.UsuarioWebModel;
+import com.example.EcoMomentBD_API.repository.UsuarioWebRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,13 +12,13 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping ("/Ecomoment/usuarios")
-public class uWebControll {
+@RequestMapping ("/Ecomoment/usuario")
+public class UsuarioWebController {
     @Autowired
-    uWebRepository uWebRepo;
+    UsuarioWebRepository uWebRepo;
 
-    @GetMapping("/todos")
-    public List<usuarioWeb> todos(){
+    @GetMapping
+    public List<UsuarioWebModel> todos(){
         return uWebRepo.findAll();
     }
 }

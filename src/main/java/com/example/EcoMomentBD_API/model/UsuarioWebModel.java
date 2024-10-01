@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "EcoMomentBD_UsuarioWeb")
-public class usuarioWeb {
+public class UsuarioWebModel {
 
     @Id
     @Column(name = "idUsuarioWeb")  // Mapeia a coluna "idUsuarioWeb" da tabela
