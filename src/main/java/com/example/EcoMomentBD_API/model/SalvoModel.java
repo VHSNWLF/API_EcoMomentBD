@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "prototipo_Salvos_EcoMoment")
+@Table (name = "prototipo_Salvos_EcoMoment", schema = "cl202247")
 public class SalvoModel {
     @EmbeddedId
     private SalvoEmbeddableModel id;

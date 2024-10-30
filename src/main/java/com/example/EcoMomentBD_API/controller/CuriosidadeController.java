@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/Ecomoment/curiosidade")
+@RequestMapping(value = "/Ecomoment/curiosidade", produces = "application/json; charset=UTF-8")
 public class CuriosidadeController {
     @Autowired
     CuriosidadeRepository curiosidadeRepo;

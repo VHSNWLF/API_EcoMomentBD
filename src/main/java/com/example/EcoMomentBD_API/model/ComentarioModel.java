@@ -1,12 +1,9 @@
 package com.example.EcoMomentBD_API.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table (name = "prototipo_Comentarios_EcoMoment")
+@Table (name = "prototipo_Comentarios_EcoMoment", schema = "cl202247")
 public class ComentarioModel {
 
     @Id
@@ -21,11 +18,23 @@ public class ComentarioModel {
     @Column
     private String comentario;
 
-    public int getId() {
+    // Campos adicionais para manipulação, mas não persistidos
+    @Transient
+    private String NomeWeb;
+
+    public String getNomeWeb() {
+        return NomeWeb;
+    }
+
+    public void setNomeWeb(String nomeWeb) {
+        NomeWeb = nomeWeb;
+    }
+
+    public int getIdComentario() {
         return idComentario;
     }
 
-    public void setId(int id) {
+    public void setIdComentario(int id) {
         this.idComentario = id;
     }
 

@@ -1,15 +1,13 @@
 package com.example.EcoMomentBD_API.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "EcoMomentBD_UsuarioWeb")
 public class UsuarioWebModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUsuarioWeb")  // Mapeia a coluna "idUsuarioWeb" da tabela
     private int idUsuarioWeb;
 
@@ -40,8 +38,41 @@ public class UsuarioWebModel {
     @Column(name = "ativo")  // Mapeia a coluna "ativo" da tabela
     private int ativo;
 
-    @Column(name = "FotoPerfil") // Mapeia a coluna "FotoPerfil"
-    private String fotoPerfil;
+    @Column(name = "Biografia")
+    private String biografia;
+
+    @Transient
+    private int idSeguido;
+
+    @Transient
+    private int idSeguidor;
+
+    @Lob // Mapeia a coluna "FotoPerfil"
+    private byte[] fotoPerfil;
+
+    public int getIdSeguido() {
+        return idSeguido;
+    }
+
+    public void setIdSeguido(int idSeguido) {
+        this.idSeguido = idSeguido;
+    }
+
+    public int getIdSeguidor() {
+        return idSeguidor;
+    }
+
+    public void setIdSeguidor(int idSeguidor) {
+        this.idSeguidor = idSeguidor;
+    }
+
+    public String getBiografia() {
+        return biografia;
+    }
+
+    public void setBiografia(String biografia) {
+        this.biografia = biografia;
+    }
 
     public int getIdUsuarioWeb() {
         return idUsuarioWeb;
@@ -124,11 +155,11 @@ public class UsuarioWebModel {
     }
 
 
-    public String getFotoPerfil() {
+    public byte[] getFotoPerfil() {
         return fotoPerfil;
     }
 
-    public void setFotoPerfil(String fotoPerfil) {
+    public void setFotoPerfil(byte[] fotoPerfil) {
         this.fotoPerfil = fotoPerfil;
     }
 }

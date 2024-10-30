@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/Ecomoment/infoMaterial")
+@RequestMapping(value = "/Ecomoment/infoMaterial", produces = "application/json; charset=UTF-8")
 public class InfoMaterialController {
     @Autowired
     InfoMaterialRepository infoMatRepo;
