@@ -48,6 +48,10 @@ public interface UsuarioWebRepository extends JpaRepository<UsuarioWebModel, Int
     @Query(value = "DELETE FROM prototipo_Salvos_EcoMoment WHERE idUsuarioWeb = ?1", nativeQuery = true)
     public void excluirContaSalvos(int idUsuario);
 
+    @Modifying
+    @Query(value = "DELETE FROM prototipo_Seguidores_EcoMoment WHERE idUsuarioWeb = ?1", nativeQuery = true)
+    public void excluirContaSeguidores(int idUsuario);
+
     @Query(value = "SELECT prototipo_Postagem_EcoMoment.idPostagem FROM prototipo_Postagem_EcoMoment inner join EcoMomentBD_UsuarioWeb on prototipo_Postagem_EcoMoment.nomeUsuario = EcoMomentBD_UsuarioWeb.NomeWeb WHERE EcoMomentBD_UsuarioWeb.NomeWeb = ?1", nativeQuery = true)
     public List<Integer> listaPostagemByNome(String nomeWeb);
 

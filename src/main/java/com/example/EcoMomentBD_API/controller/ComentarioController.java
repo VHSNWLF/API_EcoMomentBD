@@ -44,4 +44,11 @@ public class ComentarioController {
         comentRepo.comentar(idPostagem, idUsuarioWeb, comentario);
         comentRepo.updateQtdeComentariosPostagem(idPostagem);
     }
+
+    @PostMapping("/deletarComentario/{idPostagem}/{idUsuarioWeb}/{comentario}")
+    @Transactional
+    public void deletarComentario(@PathVariable int idPostagem, @PathVariable int idUsuarioWeb, @PathVariable String comentario){
+        comentRepo.deletarComentario(idPostagem, idUsuarioWeb, comentario);
+        comentRepo.updateDelQtdeComentariosPostagem(idPostagem);
+    }
 }

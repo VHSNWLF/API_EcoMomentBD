@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,10 +54,14 @@ public class UsuarioWebController {
         return uWebRepo.findByEmailOrUsernameAndSenha(emailorusername, senha);
     }
 
-    @PostMapping ("/atualizarFotoNomeBio/{foto}/{nome}/{bio}/{id}")
+    @PostMapping ("/atualizarFotoNomeBio")
     @Transactional
-    public void atualizarFotoNomeBio(@PathVariable byte[] foto, @PathVariable String nome, @PathVariable String bio, @PathVariable int id){
-        uWebRepo.atualizarFotoNomeBio(foto, nome, bio, id);
+    public void atualizarFotoNomeBio(@RequestParam("foto") String foto,
+                                     @RequestParam("nome") String nome,
+                                     @RequestParam("bio") String bio,
+                                     @RequestParam("id") int id){
+        byte[] fotoBytes = foto.isEmpty() ? null : Base64.getDecoder().decode(foto);
+        uWebRepo.atualizarFotoNomeBio(fotoBytes, nome, bio, id);
     }
 
     @PostMapping ("/atualizarSenha/{senha}/{id}")
@@ -73,6 +78,7 @@ public class UsuarioWebController {
         uWebRepo.excluirContaComentarios(id);
         uWebRepo.excluirContaCurtidas(id);
         uWebRepo.excluirContaSalvos(id);
+        uWebRepo.excluirContaSeguidores(id);
         lista = uWebRepo.listaPostagemByNome(nome);
         if (!lista.isEmpty()){
             uWebRepo.excluirContaPostagens(nome);

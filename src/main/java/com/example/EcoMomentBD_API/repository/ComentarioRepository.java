@@ -17,6 +17,14 @@ public interface ComentarioRepository extends JpaRepository<ComentarioModel, Int
     public void comentar(int idPostagem, int idUsuarioWeb, String comentario);
 
     @Modifying
+    @Query(value = "DELETE FROM prototipo_Comentarios_EcoMoment WHERE idPostagem = ?1 AND idUsuarioWeb = ?2 AND comentario = ?3", nativeQuery = true)
+    public void deletarComentario(int idPostagem, int idUsuarioWeb, String comentario);
+
+    @Modifying
     @Query(value = "UPDATE prototipo_Postagem_EcoMoment SET qtdeComentarios = qtdeComentarios + 1 WHERE idPostagem = ?1", nativeQuery = true)
     public void updateQtdeComentariosPostagem(int idPostagem);
+
+    @Modifying
+    @Query(value = "UPDATE prototipo_Postagem_EcoMoment SET qtdeComentarios = qtdeComentarios - 1 WHERE idPostagem = ?1", nativeQuery = true)
+    public void updateDelQtdeComentariosPostagem(int idPostagem);
 }
