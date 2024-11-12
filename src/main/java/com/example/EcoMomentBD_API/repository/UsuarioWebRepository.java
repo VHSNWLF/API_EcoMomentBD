@@ -32,6 +32,22 @@ public interface UsuarioWebRepository extends JpaRepository<UsuarioWebModel, Int
     @Query(value = "UPDATE cl202247.EcoMomentBD_UsuarioWeb SET SenhaWeb = ?1 WHERE idUsuarioWeb = ?2", nativeQuery = true)
     public void atualizarSenha(String senha, int idUsuario);
 
+
+    @Query(value = "SELECT idPostagem FROM cl202247.prototipo_Avaliacao_EcoMoment WHERE idUsuarioWeb = ?1", nativeQuery = true)
+    public List<Integer> listaAvaliacao(int idUsuario);
+
+    @Query(value = "SELECT idComentario FROM cl202247.prototipo_Comentarios_EcoMoment WHERE idUsuarioWeb = ?1", nativeQuery = true)
+    public List<Integer> listaComentarios(int idUsuario);
+
+    @Query(value = "SELECT idPostagem FROM cl202247.prototipo_Curtidas_EcoMoment WHERE idUsuarioWeb = ?1", nativeQuery = true)
+    public List<Integer> listaCurtidas(int idUsuario);
+
+    @Query(value = "SELECT idPostagem FROM cl202247.prototipo_Salvos_EcoMoment WHERE idUsuarioWeb = ?1", nativeQuery = true)
+    public List<Integer> listaSalvos(int idUsuario);
+
+    @Query(value = "SELECT idSeguido FROM cl202247.prototipo_Seguidores_EcoMoment WHERE idSeguidor = ?1", nativeQuery = true)
+    public List<Integer> listaSeguidores(int idUsuario);
+
     @Modifying
     @Query(value = "DELETE FROM cl202247.prototipo_Avaliacao_EcoMoment WHERE idUsuarioWeb = ?1", nativeQuery = true)
     public void excluirContaAvaliacao(int idUsuario);
@@ -47,6 +63,7 @@ public interface UsuarioWebRepository extends JpaRepository<UsuarioWebModel, Int
     @Modifying
     @Query(value = "DELETE FROM prototipo_Salvos_EcoMoment WHERE idUsuarioWeb = ?1", nativeQuery = true)
     public void excluirContaSalvos(int idUsuario);
+
 
     @Modifying
     @Query(value = "DELETE FROM prototipo_Seguidores_EcoMoment WHERE idUsuarioWeb = ?1", nativeQuery = true)

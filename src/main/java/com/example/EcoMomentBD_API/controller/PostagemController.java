@@ -101,7 +101,18 @@ public class PostagemController {
                                                 @RequestParam(value = "img7") String img7,
                                                 @RequestParam(value = "img8") String img8,
                                                 @RequestParam(value = "img9") String img9,
-                                                @RequestParam(value = "img10") String img10) {
+                                                @RequestParam(value = "img10") String img10,
+                                                @RequestParam(value = "tipo1") String tipo1,
+                                                @RequestParam(value = "tipo2") String tipo2,
+                                                @RequestParam(value = "tipo3") String tipo3,
+                                                @RequestParam(value = "tipo4") String tipo4,
+                                                @RequestParam(value = "tipo5") String tipo5,
+                                                @RequestParam(value = "tipo6") String tipo6,
+                                                @RequestParam(value = "tipo7") String tipo7,
+                                                @RequestParam(value = "tipo8") String tipo8,
+                                                @RequestParam(value = "tipo9") String tipo9,
+                                                @RequestParam(value = "tipo10") String tipo10
+    ) {
         try {
             // Converter as strings Base64 para byte[]
             byte[] img1Bytes = img1 != null && !img1.isEmpty() ? Base64.getDecoder().decode(img1) : null;
@@ -116,7 +127,7 @@ public class PostagemController {
             byte[] img10Bytes = img10 != null && !img10.isEmpty() ? Base64.getDecoder().decode(img10) : null;
 
             postagemRepo.publicarIdeia(nomePostagem, nomeUsuario, desc, matNecessarios, passoPasso, tipoMaterial, dificuldade,
-                    img1Bytes, img2Bytes, img3Bytes, img4Bytes, img5Bytes, img6Bytes, img7Bytes, img8Bytes, img9Bytes, img10Bytes);
+                    img1Bytes, img2Bytes, img3Bytes, img4Bytes, img5Bytes, img6Bytes, img7Bytes, img8Bytes, img9Bytes, img10Bytes, tipo1, tipo2,tipo3,tipo4,tipo5,tipo6,tipo7,tipo8,tipo9,tipo10);
 
             return ResponseEntity.ok("Ideia publicada com sucesso!");
         } catch (Exception e) {

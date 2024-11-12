@@ -27,6 +27,36 @@ public class PostagemModel {
     @Column
     private String dificuldadePostagem;
 
+    @Column
+    private String tipo1;
+
+    @Column
+    private String tipo2;
+
+    @Column
+    private String tipo3;
+
+    @Column
+    private String tipo4;
+
+    @Column
+    private String tipo5;
+
+    @Column
+    private String tipo6;
+
+    @Column
+    private String tipo7;
+
+    @Column
+    private String tipo8;
+
+    @Column
+    private String tipo9;
+
+    @Column
+    private String tipo10;
+
     @Lob
     private byte[] midia1;
 
@@ -72,6 +102,85 @@ public class PostagemModel {
     @Column
     private float avaliacaoPostagem;
 
+    public String getTipo1() {
+        return tipo1;
+    }
+
+    public void setTipo1(String tipo1) {
+        this.tipo1 = tipo1;
+    }
+
+    public String getTipo2() {
+        return tipo2;
+    }
+
+    public void setTipo2(String tipo2) {
+        this.tipo2 = tipo2;
+    }
+
+    public String getTipo3() {
+        return tipo3;
+    }
+
+    public void setTipo3(String tipo3) {
+        this.tipo3 = tipo3;
+    }
+
+    public String getTipo4() {
+        return tipo4;
+    }
+
+    public void setTipo4(String tipo4) {
+        this.tipo4 = tipo4;
+    }
+
+    public String getTipo5() {
+        return tipo5;
+    }
+
+    public void setTipo5(String tipo5) {
+        this.tipo5 = tipo5;
+    }
+
+    public String getTipo6() {
+        return tipo6;
+    }
+
+    public void setTipo6(String tipo6) {
+        this.tipo6 = tipo6;
+    }
+
+    public String getTipo7() {
+        return tipo7;
+    }
+
+    public void setTipo7(String tipo7) {
+        this.tipo7 = tipo7;
+    }
+
+    public String getTipo8() {
+        return tipo8;
+    }
+
+    public void setTipo8(String tipo8) {
+        this.tipo8 = tipo8;
+    }
+
+    public String getTipo9() {
+        return tipo9;
+    }
+
+    public void setTipo9(String tipo9) {
+        this.tipo9 = tipo9;
+    }
+
+    public String getTipo10() {
+        return tipo10;
+    }
+
+    public void setTipo10(String tipo10) {
+        this.tipo10 = tipo10;
+    }
 
     public int getIdPostagem() {
         return idPostagem;

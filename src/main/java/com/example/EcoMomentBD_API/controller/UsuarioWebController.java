@@ -73,14 +73,40 @@ public class UsuarioWebController {
     @PostMapping ("/excluirConta/{id}/{nome}")
     @Transactional
     public void excluirConta(@PathVariable int id, @PathVariable String nome){
-        List<Integer> lista = new ArrayList<>();
-        uWebRepo.excluirContaAvaliacao(id);
-        uWebRepo.excluirContaComentarios(id);
-        uWebRepo.excluirContaCurtidas(id);
-        uWebRepo.excluirContaSalvos(id);
-        uWebRepo.excluirContaSeguidores(id);
-        lista = uWebRepo.listaPostagemByNome(nome);
-        if (!lista.isEmpty()){
+        List<Integer> lista1 = new ArrayList<>();
+        List<Integer> lista2 = new ArrayList<>();
+        List<Integer> lista3 = new ArrayList<>();
+        List<Integer> lista4 = new ArrayList<>();
+        List<Integer> lista5 = new ArrayList<>();
+        List<Integer> lista6 = new ArrayList<>();
+
+        lista1 = uWebRepo.listaAvaliacao(id);
+        if(!lista1.isEmpty()){
+            uWebRepo.excluirContaAvaliacao(id);
+        }
+
+        lista2 = uWebRepo.listaComentarios(id);
+        if(!lista2.isEmpty()){
+            uWebRepo.excluirContaComentarios(id);
+        }
+
+        lista3 = uWebRepo.listaCurtidas(id);
+        if(!lista3.isEmpty()){
+            uWebRepo.excluirContaCurtidas(id);
+        }
+
+        lista4 = uWebRepo.listaSalvos(id);
+        if(!lista4.isEmpty()){
+            uWebRepo.excluirContaSalvos(id);
+        }
+
+        lista5 = uWebRepo.listaSeguidores(id);
+        if(!lista5.isEmpty()){
+            uWebRepo.excluirContaSeguidores(id);
+        }
+
+        lista6 = uWebRepo.listaPostagemByNome(nome);
+        if (!lista6.isEmpty()){
             uWebRepo.excluirContaPostagens(nome);
         }
         uWebRepo.excluirConta(id);

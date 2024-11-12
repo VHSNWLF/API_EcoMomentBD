@@ -42,8 +42,8 @@ public interface PostagemRepository extends JpaRepository<PostagemModel, Integer
     public List<PostagemModel> findByNomeUsuarioOrderByNCurtidas(String nome);
 
     @Modifying
-    @Query(value = "INSERT INTO cl202247.prototipo_Postagem_EcoMoment (nomePostagem, nomeUsuario, descricaoPostagem, materiaisNecessariosPostagem, instrucoesPostagem, materialPostagem, dificuldadePostagem, midia1, midia2, midia3, midia4, midia5, midia6, midia7, midia8, midia9, midia10) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17)", nativeQuery = true)
-    public void publicarIdeia(String nomePostagem, String nomeUsuario, String desc, String matNecessarios, String passoPasso, int tipoMaterial, String dificuldade, byte[] img1, byte[] img2,byte[] img3,byte[] img4,byte[] img5,byte[] img6,byte[] img7,byte[] img8,byte[] img9,byte[] img10);
+    @Query(value = "INSERT INTO cl202247.prototipo_Postagem_EcoMoment (nomePostagem, nomeUsuario, descricaoPostagem, materiaisNecessariosPostagem, instrucoesPostagem, materialPostagem, dificuldadePostagem, midia1, midia2, midia3, midia4, midia5, midia6, midia7, midia8, midia9, midia10, tipo1, tipo2, tipo3, tipo4, tipo5, tipo6, tipo7, tipo8, tipo9, tipo10) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, ?15, ?16, ?17, ?18, ?19, ?20, ?21, ?22, ?23, ?24, ?25, ?26, ?27)", nativeQuery = true)
+    public void publicarIdeia(String nomePostagem, String nomeUsuario, String desc, String matNecessarios, String passoPasso, int tipoMaterial, String dificuldade, byte[] img1, byte[] img2,byte[] img3,byte[] img4,byte[] img5,byte[] img6,byte[] img7,byte[] img8,byte[] img9,byte[] img10, String tipo1, String tipo2, String tipo3, String tipo4, String tipo5, String tipo6, String tipo7, String tipo8, String tipo9, String tipo10);
 
     //função excluir
     @Modifying
